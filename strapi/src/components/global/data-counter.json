@@ -1,0 +1,16 @@
+{
+  "collectionName": "components_global_data_counters",
+  "info": {
+    "displayName": "DataCounter",
+    "icon": "chartPie"
+  },
+  "options": {},
+  "attributes": {
+    "title": {
+      "type": "string"
+    },
+    "counter": {
+      "type": "string"
+    }
+  }
+}

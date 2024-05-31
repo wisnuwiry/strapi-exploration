@@ -1,0 +1,18 @@
+{
+  "collectionName": "components_home_sections_partners",
+  "info": {
+    "displayName": "PartnerList",
+    "icon": "chartBubble",
+    "description": ""
+  },
+  "options": {},
+  "attributes": {
+    "title": {
+      "type": "string",
+      "required": true
+    },
+    "max": {
+      "type": "integer"
+    }
+  }
+}

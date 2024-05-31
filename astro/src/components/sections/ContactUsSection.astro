@@ -1,0 +1,32 @@
+---
+import Button from "../primitive/Button.astro";
+
+interface Props {
+  title: string;
+  description?: string;
+  cta?: {
+    title: string;
+    link?: string;
+  };
+}
+
+const { title, description, cta } = Astro.props;
+---
+
+<div class="w-full bg-gray-100">
+  <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-20 flex flex-col lg:flex-row gap-6">
+    <div class="flex-1 flex flex-col">
+      <h3 class="font-bold text-2xl my-4 mb-10">{title}</h3>
+      <p class="text-gray-500">{description}</p>
+    </div>
+    <div class="flex-1 flex items-center justify-center">
+      {
+        cta !== null ? (
+          <Button text={cta?.title ?? ""} link={cta?.link} />
+        ) : (
+          <div />
+        )
+      }
+    </div>
+  </div>
+</div>

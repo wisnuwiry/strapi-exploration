@@ -1,0 +1,28 @@
+{
+  "collectionName": "components_global_social_media_items",
+  "info": {
+    "displayName": "SocialMediaItem",
+    "icon": "heart",
+    "description": ""
+  },
+  "options": {},
+  "attributes": {
+    "type": {
+      "type": "enumeration",
+      "enum": [
+        "LinkedIn",
+        "Twitter",
+        "Instagram",
+        "YouTube",
+        "Whatsapp",
+        "Email",
+        "Tiktok"
+      ],
+      "required": true
+    },
+    "link": {
+      "type": "string",
+      "required": true
+    }
+  }
+}

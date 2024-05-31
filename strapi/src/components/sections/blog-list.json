@@ -1,0 +1,17 @@
+{
+  "collectionName": "components_sections_blog_lists",
+  "info": {
+    "displayName": "BlogList",
+    "icon": "apps"
+  },
+  "options": {},
+  "attributes": {
+    "title": {
+      "type": "string",
+      "required": true
+    },
+    "max": {
+      "type": "integer"
+    }
+  }
+}

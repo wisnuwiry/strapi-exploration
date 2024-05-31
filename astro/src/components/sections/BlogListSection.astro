@@ -1,0 +1,20 @@
+---
+import { getPosts } from "../../data/services/post-service";
+import BlogGridItem from "../elements/BlogGridItem.astro";
+
+interface Props {
+  max: number;
+  title?: string;
+}
+
+const { max, title } = Astro.props;
+
+const postsData = await getPosts(1, max);
+---
+
+<div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-10">
+  <h3 class="font-bold text-2xl my-4 text-center mb-10">{title}</h3>
+  <div class="grid grid-cols-3 gap-6">
+    {postsData.map((e) => <BlogGridItem post={e} />)}
+  </div>
+</div>

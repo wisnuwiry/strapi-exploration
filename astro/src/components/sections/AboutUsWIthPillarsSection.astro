@@ -1,0 +1,50 @@
+---
+import type { Image } from "../../data/types/image";
+import Button from "../primitive/Button.astro";
+
+interface Props {
+  title: string;
+  description?: string;
+  pillars: PillarItem[];
+  cta?: {
+    title: string;
+    link?: string;
+  };
+}
+
+interface PillarItem {
+  id: number;
+  description: string;
+  icon: Image;
+}
+
+const { title, description, pillars, cta } = Astro.props;
+const url = import.meta.env.PUBLIC_STRAPI_URL;
+
+---
+
+<div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-10">
+    <div class="flex flex-row">
+        <div class="flex flex-col grow flex-1">
+            <h3 class="font-bold text-2xl my-4">{title}</h3>
+            <p>{description}</p>
+        </div>
+
+        <div class="flex items-center grow flex-1 justify-center">
+            {cta !== null ? <Button text={cta?.title ?? ""} link={cta?.link}/> : <div />}
+        </div>
+    </div>
+
+    <hr class="my-6"/>
+
+    <div class="grid grid-cols-4 gap-6">
+        {
+            pillars.map((e) => (
+                <div class="border border-1 rounded-lg p-6 hover:shadow-md cursor-pointer">
+                    <img src={url + e.icon.data.attributes.url } class="h-20 mb-4"/>
+                    <p class="font-lg font-semibold">{e.description}</p>
+                </div>
+            ))
+        }
+    </div>
+</div>

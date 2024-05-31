@@ -1,0 +1,51 @@
+---
+import type { Post } from '../../data/types/post';
+import Button from '../primitive/Button.astro';
+
+interface Props {
+  post: Post
+}
+
+const { post } = Astro.props;
+const { slug, title, excerpt, author, featured } = post.attributes;
+const url = import.meta.env.PUBLIC_STRAPI_URL;
+
+const authorImage = author?.data?.attributes?.avatar?.data?.attributes.url || null;
+const postImage = featured?.data?.attributes?.url || null;
+---
+
+<div
+  class="rounded-md overflow-hidden shadow-sm p-4 transition-transform h-auto bg-gray-100"
+>
+  <a href={`/post/${slug}`}>
+    <div class="rounded-md h-48 w-full overflow-hidden">
+      <img
+        class="object-cover w-full h-full"
+        src={postImage
+          ? url + postImage
+          : "https://via.placeholder.com/1080"}
+      />
+    </div>
+    <div>
+      <h1 class="my-2 font-bold text-xl text-gray-900">{title}</h1>
+      <p class="my-2 text-gray-700 line-clamp-3">{excerpt}</p>
+    </div>
+    <div class="flex justify-between my-4 items-center">
+      <div class="flex space-x-2 items-center overflow-hidden">
+        <img
+          class="inline-block h-8 w-8 rounded-full ring-2 ring-white"
+          src={authorImage
+            ? url + authorImage
+            : "https://via.placeholder.com/1080"}
+          alt="author picture"
+        />
+        <p class="font-medium text-xs text-gray-600 cursor-pointer">
+          {author?.data?.attributes?.name}
+        </p>
+      </div>
+      <div class="inline-flex rounded-md">
+        <Button link={`/post/${slug}`} text='Read article'/>
+      </div>
+    </div>
+  </a>
+</div>

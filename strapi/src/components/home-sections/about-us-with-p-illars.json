@@ -1,0 +1,29 @@
+{
+  "collectionName": "components_sections_about_us_with_p_illars",
+  "info": {
+    "displayName": "AboutUsWithPillars",
+    "icon": "dashboard",
+    "description": ""
+  },
+  "options": {},
+  "attributes": {
+    "title": {
+      "type": "string",
+      "required": true
+    },
+    "description": {
+      "type": "text"
+    },
+    "pillars": {
+      "type": "component",
+      "repeatable": true,
+      "component": "global.pillar-item"
+    },
+    "cta": {
+      "displayName": "Button",
+      "type": "component",
+      "repeatable": false,
+      "component": "shared.button"
+    }
+  }
+}

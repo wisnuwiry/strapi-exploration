@@ -1,0 +1,57 @@
+# See https://help.github.com/articles/ignoring-files/ for more about ignoring files.
+
+# dependencies
+/node_modules
+/.pnp
+.pnp.js
+
+# testing
+/coverage
+
+# production
+/build
+
+# misc
+.DS_Store
+.DS_Store?
+*.pem
+
+# debug
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# local env files
+.env*
+!.env*.example
+
+# typescript
+*.tsbuildinfo
+
+# Local .terraform directories
+**/.terraform/*
+
+# .tfstate files
+*.tfstate
+*.tfstate.*
+
+# Ignore .tar.gz
+*.tar.gz
+
+# Sentry Config File
+.sentryclirc
+
+# NVM
+.nvmrc
+
+# Strapi
+.tmp/
+.strapi/
+dist/
+/tmp
+/types/
+
+.yarn
+.yarn/
+.yarnrc.yml
+

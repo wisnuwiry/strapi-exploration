@@ -1,0 +1,18 @@
+{
+  "collectionName": "components_global_sub_menu_items",
+  "info": {
+    "displayName": "SubMenuItem",
+    "icon": "bulletList",
+    "description": ""
+  },
+  "options": {},
+  "attributes": {
+    "title": {
+      "type": "string",
+      "required": true
+    },
+    "link": {
+      "type": "string"
+    }
+  }
+}

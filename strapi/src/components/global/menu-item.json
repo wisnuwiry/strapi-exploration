@@ -1,0 +1,22 @@
+{
+  "collectionName": "components_global_menu_items",
+  "info": {
+    "displayName": "MenuItem",
+    "icon": "bulletList",
+    "description": ""
+  },
+  "options": {},
+  "attributes": {
+    "link": {
+      "type": "string"
+    },
+    "title": {
+      "type": "string"
+    },
+    "sub_menus": {
+      "type": "component",
+      "repeatable": true,
+      "component": "global.sub-menu-item"
+    }
+  }
+}

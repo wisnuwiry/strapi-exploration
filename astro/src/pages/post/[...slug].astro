@@ -1,0 +1,31 @@
+---
+import Layout from "../../layouts/Layout.astro";
+import SingleBlogItem from "../../components/SingleBlogItem.astro";
+import { getDetailPost } from "../../data/services/post-service";
+import FooterSection from "../../components/sections/FooterSection.astro";
+import HeaderSection from "../../components/sections/HeaderSection.astro";
+import { getMainMenu } from "../../data/services/menu-service";
+
+export const prerender = false;
+
+const notFound = new Response(null, {
+  status: 404,
+  statusText: "Not found",
+});
+
+const { slug } = Astro.params;
+if (!slug) return notFound;
+
+const post = await getDetailPost(slug);
+if (!post) return notFound;
+const menu = await getMainMenu();
+---
+
+<Layout title={post.attributes.title}>
+  <HeaderSection menu={menu} />
+  <SingleBlogItem post={post}/>
+  <FooterSection
+    menu={menu}
+    copyright={'© Viriyaenb'}
+  />
+</Layout>

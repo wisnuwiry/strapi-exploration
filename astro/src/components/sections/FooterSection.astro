@@ -1,0 +1,43 @@
+---
+import type { Menu } from "../../data/types/menu";
+
+interface Props {
+  menu: Menu;
+  copyright?: string;
+}
+
+const { menu, copyright } = Astro.props;
+const url = import.meta.env.PUBLIC_STRAPI_URL;
+---
+
+<footer class="bg-black">
+  <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 text-white py-10">
+    <div class="flex flex-row flex-wrap gap-3 w-full justify-between">
+      {
+        menu.attributes.logo.data !== null ? (
+          <img
+            src={url + menu.attributes.logo.data!.attributes.url}
+            class="h-6"
+          />
+        ) : (
+          <div />
+        )
+      }
+
+      {
+        menu.attributes.items.map((e) => (
+          <div class="flex flex-col gap-2">
+            <a href={e.link} class="font-bold">
+              {e.title}
+            </a>
+            {e.sub_menus?.map((e) => (
+              <a href={e.link}>{e.title}</a>
+            ))}
+          </div>
+        ))
+      }
+    </div>
+    <hr class="my-4" />
+    <p class="py-4 text-center">{copyright}</p>
+  </div>
+</footer>

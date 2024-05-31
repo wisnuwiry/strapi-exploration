@@ -1,0 +1,14 @@
+{
+  "collectionName": "components_sections_footers",
+  "info": {
+    "displayName": "Footer",
+    "icon": "stack",
+    "description": ""
+  },
+  "options": {},
+  "attributes": {
+    "copyright": {
+      "type": "string"
+    }
+  }
+}

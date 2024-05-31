@@ -1,0 +1,21 @@
+{
+  "collectionName": "components_global_pillar_items",
+  "info": {
+    "displayName": "PillarItem",
+    "icon": "quote"
+  },
+  "options": {},
+  "attributes": {
+    "icon": {
+      "allowedTypes": [
+        "images"
+      ],
+      "type": "media",
+      "multiple": false,
+      "required": true
+    },
+    "description": {
+      "type": "string"
+    }
+  }
+}

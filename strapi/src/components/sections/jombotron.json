@@ -1,0 +1,18 @@
+{
+  "collectionName": "components_sections_jombotrons",
+  "info": {
+    "displayName": "Jumbotron",
+    "icon": "chartBubble",
+    "description": ""
+  },
+  "options": {},
+  "attributes": {
+    "items": {
+      "displayName": "JombotronItem",
+      "type": "component",
+      "repeatable": true,
+      "component": "global.jombotron-item",
+      "required": true
+    }
+  }
+}

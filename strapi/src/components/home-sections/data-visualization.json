@@ -1,0 +1,22 @@
+{
+  "collectionName": "components_home_sections_data_visualizations",
+  "info": {
+    "displayName": "DataVisualization",
+    "icon": "chartPie"
+  },
+  "options": {},
+  "attributes": {
+    "title": {
+      "type": "string",
+      "required": true
+    },
+    "description": {
+      "type": "text"
+    },
+    "items": {
+      "type": "component",
+      "repeatable": true,
+      "component": "global.data-counter"
+    }
+  }
+}

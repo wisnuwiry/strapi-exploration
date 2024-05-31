@@ -1,0 +1,28 @@
+---
+import { getPartners } from "../../data/services/partner-service";
+
+interface Props {
+  max: number;
+}
+
+const { max } = Astro.props;
+
+const partners = await getPartners();
+const url = import.meta.env.PUBLIC_STRAPI_URL;
+---
+
+<div class="w-full bg-gray-100">
+  <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-10">
+    <h3 class="font-medium text-lg my-4 text-center mb-10">
+      PROUD TO SUPPORT UK PUBLIC SECTOR CLIENTS
+    </h3>
+    <div class="grid grid-cols-5 gap-3">
+      {
+        partners.attributes.items
+          .slice(0, max)
+          .map((e) => <img src={url + e.logo.data.attributes.url} />)
+      }
+    </div>
+  </div>
+</div>
+

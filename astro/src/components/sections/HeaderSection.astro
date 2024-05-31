@@ -1,0 +1,74 @@
+---
+import type { Menu } from "../../data/types/menu";
+
+interface Props {
+  menu: Menu;
+}
+
+const { menu } = Astro.props;
+const url = import.meta.env.PUBLIC_STRAPI_URL;
+---
+
+<header class="bg-gray-400">
+  <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+    <nav class="relative z-50 flex justify-between">
+      <div class="flex items-center md:gap-x-12 w-full justify-between">
+        <a aria-label="Home" href="/">
+          {
+            menu.attributes.logo.data != null ? (
+              <img src={url + menu.attributes.logo.data.attributes.url} class="h-6"/>
+            ): <div></div>
+          }
+        </a>
+        <div class="hidden md:flex md:gap-x-6">
+          {menu.attributes.items.map((e) => (
+            <div class="relative group">
+              <a
+                class="inline-block rounded-lg px-2 py-6 text-sm text-slate-200 group-hover:text-white"
+                href={e.link ?? "#"}
+              >
+                {e.title}
+              </a>
+              {e.sub_menus && e.sub_menus.length > 0 && (
+                <div class="absolute left-0 mt-[-1rem] hidden w-48 bg-white text-slate-800 rounded-md shadow-lg group-hover:block hover:block transition-opacity duration-200">
+                  {e.sub_menus.map((sub) => (
+                    <a
+                      class="block px-4 py-2 text-sm hover:bg-slate-200"
+                      href={sub.link ?? "#"}
+                    >
+                      {sub.title}
+                    </a>
+                  ))}
+                </div>
+              )}
+            </div>
+          ))}
+        </div>
+      </div>
+      <div class="-mr-1 md:hidden py-4">
+          <div data-headlessui-state="">
+            <button
+              class="relative z-10 flex h-8 w-8 items-center justify-center ui-not-focus-visible:outline-none"
+              aria-label="Toggle Navigation"
+              type="button">
+              <svg
+                aria-hidden="true"
+                class="h-3.5 w-3.5 overflow-visible stroke-slate-300"
+                fill="none"
+                stroke-width="2"
+                stroke-linecap="round">
+                <path
+                  d="M0 1H14M0 7H14M0 13H14"
+                  class="origin-center transition"></path>
+                  <path
+                    d="M2 2L12 12M12 2L2 12"
+                    class="origin-center transition scale-90 opacity-0">
+                  </path>
+              </svg>
+            </button>
+          </div>
+        </div>
+      </div>
+    </nav>
+  </div>
+</header>

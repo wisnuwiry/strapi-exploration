@@ -1,0 +1,17 @@
+---
+import { cn } from '../../utils';
+
+interface Props {
+  text: string;
+  link?: string;
+  className?: string;
+}
+
+const { text, link, className } = Astro.props;
+---
+
+<a
+  href={link}
+  class={cn(className, "inline-flex items-center justify-center px-5 py-2 border border-transparent text-base font-medium rounded-md text-white bg-black hover:opacity-80")}
+  >{text}</a
+>
